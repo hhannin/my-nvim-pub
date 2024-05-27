@@ -1,0 +1,6 @@
+# Maximum line width
+column_width = 100
+
+# Indentation settings
+indent_type = "Spaces" # "Tabs" or "Spaces"
+indent_width = 2
