@@ -18,6 +18,10 @@ return {
               vim.fn.expand("~/.config/nvim/stylua.toml"),
             },
           }),
+          -- 添加 Shell 格式化工具
+          null_ls.builtins.formatting.shfmt.with({
+            extra_args = { "-i", "2" }, -- 设置缩进宽度为 4
+          }),
           -- 你可以在这里添加更多的格式化工具
         },
         -- 设置自动格式化
