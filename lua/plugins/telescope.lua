@@ -35,6 +35,11 @@ return {
         },
         buffers = {
           theme = "ivy", -- 直接在 pickers 中指定主题
+          layout_config = {
+            height = 0.4, -- 设置 Ivy 主题的高度为 25% 屏幕高度
+            prompt_position = "bottom", -- 将提示符放置在底部
+            preview_cutoff = 100000, -- 禁用预览框
+          },
         },
         help_tags = {
           theme = "ivy", -- 直接在 pickers 中指定主题
