@@ -14,6 +14,7 @@ return {
           }
         ),
       },
+      cmd = { "clangd", "--compile-commands-dir=build" }, -- 指定 compile_commands.json 的目录
     }) -- 配置 clangd 作为 LSP 服务器
     -- LSP 快捷键配置
     local map = vim.api.nvim_set_keymap

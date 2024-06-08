@@ -1,7 +1,12 @@
 -- ~/.config/nvim/lua/plugins/colorscheme.lua
 
 return {
-  { "folke/tokyonight.nvim" },
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      style = "day", -- 使用 TokyoNight 的亮色主题
+    },
+  },
   { "morhetz/gruvbox" },
   { "joshdick/onedark.vim" },
   { "dracula/vim", as = "dracula" },

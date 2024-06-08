@@ -2,7 +2,10 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope-fzf-native.nvim", -- 提高搜索速度的插件
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+    },
   },
   config = function()
     local telescope = require("telescope")
@@ -46,6 +49,15 @@ return {
         },
       },
     })
+
+    extensions = {
+      fzf = {
+        fuzzy = true, -- 模糊搜索
+        override_generic_sorter = true, -- 覆盖通用排序器
+        override_file_sorter = true, -- 覆盖文件排序器
+        case_mode = "smart_case", -- 忽略大小写或尊重大小写
+      },
+    }
 
     -- 加载 telescope-fzf-native 扩展
     telescope.load_extension("fzf")

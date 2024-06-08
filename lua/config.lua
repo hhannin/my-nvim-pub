@@ -7,3 +7,14 @@ vim.opt.clipboard = "unnamedplus"
 
 -- 设置 Vim 的 completeopt 选项
 vim.o.completeopt = "menuone,noselect"
+
+-- 自动恢复光标位置
+vim.cmd([[
+  augroup last_position
+    autocmd!
+    autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal! g'\"" |
+      \ endif
+  augroup END
+]])
