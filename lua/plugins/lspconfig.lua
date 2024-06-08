@@ -3,6 +3,16 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
     lspconfig.clangd.setup({
+      cmd = {
+        "clangd",
+        "--background-index",
+        "--pch-storage=memory",
+        "--clang-tidy",
+        "--completion-style=detailed",
+        "--all-scopes-completion",
+        "--cross-file-rename",
+        "--header-insertion=iwyu",
+      },
       handlers = {
         ["textDocument/publishDiagnostics"] = vim.lsp.with(
           vim.lsp.diagnostic.on_publish_diagnostics,
@@ -14,7 +24,7 @@ return {
           }
         ),
       },
-      cmd = { "clangd", "--compile-commands-dir=build" }, -- 指定 compile_commands.json 的目录
+      -- cmd = { "clangd", "--compile-commands-dir=build" }, -- 指定 compile_commands.json 的目录
     }) -- 配置 clangd 作为 LSP 服务器
     -- LSP 快捷键配置
     local map = vim.api.nvim_set_keymap
