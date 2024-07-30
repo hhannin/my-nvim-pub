@@ -26,6 +26,21 @@ return {
       },
       -- cmd = { "clangd", "--compile-commands-dir=build" }, -- 指定 compile_commands.json 的目录
     }) -- 配置 clangd 作为 LSP 服务器
+
+    -- sudo snap install pyright
+    lspconfig.pyright.setup({
+      handlers = {
+        ["textDocument/publishDiagnostics"] = vim.lsp.with(
+          vim.lsp.diagnostic.on_publish_diagnostics,
+          {
+            virtual_text = true, -- 显示虚拟文本
+            signs = true, -- 在行号栏显示标志
+            update_in_insert = true, -- 插入模式下更新诊断
+          }
+        ),
+      },
+    })
+
     -- LSP 快捷键配置
     local map = vim.api.nvim_set_keymap
     local opts = { noremap = true, silent = true }
